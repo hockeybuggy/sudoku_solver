@@ -2,7 +2,7 @@
  *FILENAME: solver.c
  *AUTHOR: Douglas Anderson
  *CREATED: 12/07/16
- *MODIFIED: 12/07/29
+ *MODIFIED: 12/09/26
  */
 
 #include <stdlib.h>
@@ -10,13 +10,27 @@
 #include <string.h>
 #include "solver.h"
 
+#include "hiredis.h"
+
 #define BUFFERSIZE 1024
 #define DEBUG 0
+#define REDIS_LOG 0
 
 int main(int argc, char* argv[]){
     int result;
     char gameStr[82];
     struct puzzle* game;
+
+    #if REDIS_LOG
+    redisContext *ctx;
+    redisReply *reply;
+    ctx = redisConnect("127.0.0.1", 6379);
+    if(ctx->err) {
+        printf("Error: %s\n", ctx->errstr);
+        exit(1);
+    }
+    #endif
+
     if(argc != 2){
         printf("Usage: solver [Game String]\n");
         return(1);
@@ -24,12 +38,20 @@ int main(int argc, char* argv[]){
     strcpy(gameStr, argv[1]);
     game = malloc(sizeof(struct puzzle));
     createGame(game, gameStr);
+
     #if DEBUG
     printPuzzle(game);
     printf("Puzzle validity:%d \n", puzzleIsValid(game));
     printf("Puzzle completeness:%d \n", puzzleIsComplete(game));
     #endif
-    result = solve(game, -1, -1);
+    result = solve(game, -1, -1); // This recursively solves the puzzle
+
+    #if REDIS_LOG
+    redisCommand(ctx, "PING");
+    printf("SET: %s\n", reply->str);
+    freeReplyObject(reply);
+    #endif
+
     #if DEBUG
     printPuzzle(game);
     printf("Puzzle validity:%d \n", puzzleIsValid(game));
@@ -37,7 +59,12 @@ int main(int argc, char* argv[]){
     #else
     printPuzzleFlat(game);
     #endif
+
+    // End Block
     freeGame(game);
+    #if REDIS_LOG
+    redisFree(ctx);
+    #endif
     return(result);
 }
 

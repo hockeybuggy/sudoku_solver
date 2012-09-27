@@ -35,16 +35,16 @@ in a string representing a sudoku puzzle. It should output a solved representati
         also exist.
 
 ### Todo:
-    - Input checking
-    - Output checking
-    - Improve tests
-    - Improve documentation
-    - Improve algorithm
-        - Count number of occupied cells in rows, cols, and boxes
-        - Other?
-    - Use redis to track solves
-    - Find multithreading solution
-    - Improve Output
+- Input checking
+- Output checking
+- Improve tests
+- Improve documentation
+- Improve algorithm
+    - Count number of occupied cells in rows, cols, and boxes
+    - Other?
+- Use redis to track solves
+- Find multithreading solution
+- Improve Output
 
 Please comment or contribute. I would love and greatly appreciate feedback!
 

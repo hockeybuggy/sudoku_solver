@@ -6,9 +6,10 @@ CC          =gcc
 CFLAGS      =-Wall -std=c99 -pedantic -g
 
 #Directories where the compiler can find things
-INCLUDES    =
+INCLUDES    = -I/usr/local/include/hiredis
 LIBDIRS     =
-LIBS        =
+LIBS        = -lhiredis
+
 
 # add directory names here if you want to separate files by directories
 BINDIR =bin/
@@ -18,8 +19,7 @@ SRCDIR =src/
 SOURCE = $(SRCDIR)solver.c
 
 #The list of object files is below. Make changes as appropriate
-OBJS = solver.o
-
+OBJS = solver.o 
 #The names of the binary programs that will be produced.  
 EXENAME = $(BINDIR)solver
 
