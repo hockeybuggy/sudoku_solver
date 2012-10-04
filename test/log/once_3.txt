@@ -1,4 +1,4 @@
-game:1	attempt: 0.422275066376	solved:1
-game:2	attempt: 0.0299091339111	solved:1
-game:3	attempt: 0.0607311725616	solved:1
-Total Duration:0.513203859329
+game:1	attempt: 0.415045022964	solved:1
+game:2	attempt: 0.0293438434601	solved:1
+game:3	attempt: 0.0532710552216	solved:1
+Total Duration:0.497961997986
