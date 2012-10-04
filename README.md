@@ -38,6 +38,7 @@ in a string representing a sudoku puzzle. It should output a solved representati
 - Input checking
 - Output checking
 - Improve tests
+- Test v2.0
 - Improve documentation
 - Improve algorithm
     - Count number of occupied cells in rows, cols, and boxes
