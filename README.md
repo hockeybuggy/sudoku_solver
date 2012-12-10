@@ -4,7 +4,6 @@
 This was something I started to write in the summer of 2012. The C program takes
 in a string representing a sudoku puzzle. It should output a solved representation.
 
-./bin/solver [puzzle string]
 - Input  : a 81 character string x. where x[i]is an element of {0123456789}
     - Zero denotes a unfilled cell
 - Output : a 81 character string y. where y[i] is an element of {123456789}
