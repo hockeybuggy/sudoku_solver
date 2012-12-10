@@ -11,21 +11,28 @@ in a string representing a sudoku puzzle. It should output a solved representati
 
 ### Usage:
 The program is simple enough to test.
+
         $ make
         $ ./bin/solver [puzzle_string]
+
 Example puzzle
+
         $ ./bin/solver 200000060000075030048090100000300000300010009000008000001020570080730000090000004
-        To make html document from documentation markdown
+
+To make html document from documentation markdown
+
         $ make doc
 
 ### Testing:
 Currently test are very lacking. It only tests valid input. 
 There are some test files such as:
 once_3.py (solves 3 puzzles once):
+
     $ ./test/once_3.py
     $ cat test/log/once_3.txt
 
 test.py (which solves 244 each problem 3 times each and takes the mean):
+
     $ ./test/test.py
     $ tail -f test/log/test.txt
 
