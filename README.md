@@ -53,7 +53,7 @@ once.py (244 games once)
 - Find multithreading solution
 - Improve Output
 
-### Licanse:
+### License:
 The code is under the MIT license. This permissive license is included to
 encourage sharing of any modifications.
 
