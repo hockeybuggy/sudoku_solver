@@ -9,6 +9,7 @@ in a string representing a sudoku puzzle. It should output a solved representati
 - Output : a 81 character string y. where y[i] is an element of {123456789}
 
 ### Usage:
+
 The program is simple enough to test.
 
         $ make
@@ -23,18 +24,27 @@ To make html document from documentation markdown
         $ make doc
 
 ### Testing:
-Currently test are very lacking. It only tests valid input. 
-There are some test files such as:
 
-once_3.py (solves 3 puzzles once):
+Currently test are very lacking. At this point in time all they do in execute
+the solver with various inputs and record the amount of time it takes to solve
+the puzzle.  There are some test files such as:
+
+once_3.py ():
 
     $ ./test/once_3.py
     $ cat test/log/once_3.txt
 
-test.py (which solves 244 each problem 3 times each and takes the mean):
+Solves 3 puzzles one time each and report the average length of execution.
+
+test.py ():
 
     $ ./test/test.py
     $ tail -f test/log/test.txt
+
+Solves 244 different problems 3 times each and reports the average length of
+execution.
+
+#### Other tests:
 
 test_3.py (3 games, 3 times and takes mean)
 
