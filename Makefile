@@ -6,9 +6,9 @@ CC          =gcc
 CFLAGS      =-Wall -std=c99 -pedantic -g
 
 #Directories where the compiler can find things
-INCLUDES    = -I/usr/local/include/hiredis
+INCLUDES    =
 LIBDIRS     =
-LIBS        = -lhiredis
+LIBS        =
 
 
 # add directory names here if you want to separate files by directories
