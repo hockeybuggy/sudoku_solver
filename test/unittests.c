@@ -10,6 +10,7 @@
 //Function Protoypes for tests
 Suite* make_cell_suite(void);
 Suite* make_group_suite(void);
+Suite* make_puzzle_suite(void);
 
 
 int main (void){
@@ -18,6 +19,7 @@ int main (void){
     /*Suite *s_group = group_suite();*/
     SRunner *sr = srunner_create(make_cell_suite());
     srunner_add_suite(sr, make_group_suite());
+    srunner_add_suite(sr, make_puzzle_suite());
     srunner_run_all(sr, CK_NORMAL);
     number_failed = srunner_ntests_failed(sr);
     srunner_free(sr);

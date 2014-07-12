@@ -22,7 +22,7 @@ SOURCE = $(SRCDIR)cell.c $(SRCDIR)group.c $(SRCDIR)puzzle.c $(SRCDIR)solver.c
 OBJS = cell.o group.o puzzle.o
 #The names of the binary programs that will be produced.
 EXENAME = $(BINDIR)solver
-TESTS = $(TESTDIR)unittests.c $(TESTDIR)check_cell.c $(TESTDIR)check_group.c
+TESTS = $(TESTDIR)unittests.c $(TESTDIR)check_cell.c $(TESTDIR)check_group.c $(TESTDIR)check_puzzle.c
 TESTEXE = testexe
 
 #### Targets
