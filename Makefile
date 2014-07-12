@@ -13,6 +13,7 @@ LIBS        =
 # add directory names here if you want to separate files by directories
 BINDIR =bin/
 SRCDIR =src/
+TESTDIR =test/
 
 #Put the names of your source code file in the lines below.
 SOURCE = $(SRCDIR)cell.c $(SRCDIR)group.c $(SRCDIR)puzzle.c $(SRCDIR)solver.c
@@ -27,15 +28,21 @@ default : all
 
 all : solver
 
-debug:  $(SRCDIR)cell.h $(SRCDIR)group.h $(SRCDIR)puzzle.h $(SRCDIR)solver.h
+debug: $(SRCDIR)cell.h $(SRCDIR)group.h $(SRCDIR)puzzle.h $(SRCDIR)solver.h
 	$(CC) $(CFLAGS) $(INCLUDES) -DDEBUG=1 -c $(SOURCE)
 	$(CC) $(CFLAGS) $(LIBS) -o $(EXENAME) $(OBJS)
 
-solver:  $(SRCDIR)cell.h $(SRCDIR)group.h $(SRCDIR)puzzle.h $(SRCDIR)solver.h
+solver: $(SRCDIR)cell.h $(SRCDIR)group.h $(SRCDIR)puzzle.h $(SRCDIR)solver.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $(SOURCE)
 	$(CC) $(CFLAGS) $(LIBS) -o $(EXENAME) $(OBJS)
 
+test: solver
+	$(CC) $(TESTDIR)check_cell.c cell.o -o testexe `pkg-config --cflags --libs check`
+	./testexe
+
 #### Util targets
+.PHONY: doc clean test
+
 doc:
 	markdown README.md > README.html
 

@@ -45,9 +45,8 @@ puzzle_t* puzzle_create(char* puzzle_str){
     p->cols = malloc(sizeof(group_t)*9);
     p->boxs = malloc(sizeof(group_t)*9);
     for(int i = 0; i < 81; i++){
-        p->rows[i/9].cells[i%9] = malloc(sizeof(cell_t));
-        p->rows[i/9].cells[i%9]->value = puzzle_str[i] - 48;
-        /*printf("square number:%d, value:%c\n", i, pStr[i]);*/
+        p->rows[i/9].cells[i%9] = cell_create();
+        cell_set(p->rows[i/9].cells[i%9], puzzle_str[i] - 48);
     }
     for(int i = 0; i < 9; i++){
         for(int j = 0; j < 9; j++){
@@ -116,17 +115,6 @@ int puzzle_is_complete(puzzle_t* p){
     return(0);
 }
 
-void puzzle_free(puzzle_t* p){
-    /*printf("free game\n");*/
-    for(int i = 0; i < 81; i++){
-        free(p->rows[i/9].cells[i%9]);
-    }
-    free(p->rows);
-    free(p->cols);
-    free(p->boxs);
-    free(p);
-}
-
 void puzzle_print(puzzle_t* p, int flat){
     if(flat == 1){
         for(int i = 0; i < 9; i++){
@@ -151,6 +139,15 @@ void puzzle_print(puzzle_t* p, int flat){
             printf("\n");
         }
     }
+}
 
+void puzzle_free(puzzle_t* p){
+    for(int i = 0; i < 81; i++){
+        cell_free(p->rows[i/9].cells[i%9]);
+    }
+    free(p->rows);
+    free(p->cols);
+    free(p->boxs);
+    free(p);
 }
 
