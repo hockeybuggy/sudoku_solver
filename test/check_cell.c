@@ -1,3 +1,7 @@
+/*
+ *FILENAME: check_cell.c
+ *AUTHOR: Douglas Anderson
+ */
 
 #include <stdlib.h>
 #include <malloc.h>
@@ -24,7 +28,7 @@ START_TEST (test_cell_accessor)
 }
 END_TEST
 
-Suite* cell_suite(void){
+Suite* make_cell_suite(void){
     Suite* s = suite_create("Cell");
 
     TCase *tc_core = tcase_create("Core");
@@ -32,15 +36,5 @@ Suite* cell_suite(void){
     tcase_add_test(tc_core, test_cell_accessor);
     suite_add_tcase(s, tc_core);
     return s;
-}
-
-int main (void){
-    int number_failed;
-    Suite *s = cell_suite();
-    SRunner *sr = srunner_create(s);
-    srunner_run_all(sr, CK_NORMAL);
-    number_failed = srunner_ntests_failed(sr);
-    srunner_free(sr);
-    return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 

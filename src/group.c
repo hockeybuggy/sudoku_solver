@@ -7,6 +7,11 @@
 #include <malloc.h>
 #include "group.h"
 
+group_t* group_create(){
+    group_t* g = (group_t*) malloc(sizeof(group_t));
+    return g;
+}
+
 int group_is_valid(group_t* g){
     int exists[9];
     for(int i = 0; i < 9; i++){
@@ -36,5 +41,9 @@ int group_is_complete(group_t* g){
         return(1);
     }
     return(0);
+}
+
+void group_free(group_t* g){
+    free(g);
 }
 

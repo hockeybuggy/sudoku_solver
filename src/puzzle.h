@@ -3,6 +3,9 @@
  *AUTHOR: Douglas Anderson
  */
 
+#ifndef PUZZLE_H
+#define PUZZLE_H
+
 #include "group.h"
 
 typedef struct puzzle{
@@ -26,4 +29,6 @@ int puzzle_is_complete(puzzle_t* p);
 void puzzle_print(puzzle_t* p, int flat);
 
 void puzzle_free(puzzle_t* p);
+
+#endif
 
