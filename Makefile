@@ -10,30 +10,29 @@ INCLUDES    =
 LIBDIRS     =
 LIBS        =
 
-
 # add directory names here if you want to separate files by directories
 BINDIR =bin/
 SRCDIR =src/
 
-#Put the names of your source code file in the lines below.  
-SOURCE = $(SRCDIR)solver.c
+#Put the names of your source code file in the lines below.
+SOURCE = $(SRCDIR)cell.c $(SRCDIR)group.c $(SRCDIR)puzzle.c $(SRCDIR)solver.c
 
 #The list of object files is below. Make changes as appropriate
-OBJS = solver.o 
-#The names of the binary programs that will be produced.  
+OBJS = cell.o group.o puzzle.o solver.o
+#The names of the binary programs that will be produced.
 EXENAME = $(BINDIR)solver
 
 #### Targets
 default : all
 
-all : solver 
+all : solver
 
-debug: $(SRCDIR)solver.c $(SRCDIR)solver.h
+debug:  $(SRCDIR)cell.h $(SRCDIR)group.h $(SRCDIR)puzzle.h $(SRCDIR)solver.h
 	$(CC) $(CFLAGS) $(INCLUDES) -DDEBUG=1 -c $(SOURCE)
-	$(CC) $(CFLAGS) $(LIBS) -o $(EXENAME) $(OBJS) 
+	$(CC) $(CFLAGS) $(LIBS) -o $(EXENAME) $(OBJS)
 
-solver: $(SRCDIR)solver.c $(SRCDIR)solver.h
-	$(CC) $(CFLAGS) $(INCLUDES) -c $(SOURCE) 
+solver:  $(SRCDIR)cell.h $(SRCDIR)group.h $(SRCDIR)puzzle.h $(SRCDIR)solver.h
+	$(CC) $(CFLAGS) $(INCLUDES) -c $(SOURCE)
 	$(CC) $(CFLAGS) $(LIBS) -o $(EXENAME) $(OBJS)
 
 #### Util targets

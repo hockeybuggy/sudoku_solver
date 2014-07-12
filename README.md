@@ -1,4 +1,4 @@
-# A C sudoku solver 
+# A C sudoku solver
 ### by Douglas Anderson
 
 This was something I started to write in the summer of 2012. The C program takes
@@ -62,6 +62,7 @@ once.py (244 games once)
 - Use redis to track solves
 - Find multithreading solution
 - Improve Output
+- Values and row cols to bytes
 
 ### License:
 The code is under the MIT license. This permissive license is included to
