@@ -131,9 +131,8 @@ void puzzle_print(puzzle_t* p, int flat){
                     printf("%d", p->rows[i].cells[j]->value);
                 }
                 else{
-                    printf(" ");
+                    printf(" "); // print blanks rather then zeros
                 }
-                // TODO print blanks rather then zeros
                 // TODO ver col breaks
             }
             printf("\n");

@@ -10,7 +10,6 @@
 #include "solver.h"
 
 #define BUFFER_SIZE 1024
-#define DEBUG 0
 
 int main(int argc, char* argv[]){
     int result;
@@ -25,14 +24,15 @@ int main(int argc, char* argv[]){
     puzzle = puzzle_create(gameStr);
 
     #if DEBUG
-    print_puzzle(puzzle, 0);
+    puzzle_print(puzzle, 0);
     printf("Puzzle validity:%d \n", puzzle_is_valid(puzzle));
     printf("Puzzle completeness:%d \n", puzzle_is_complete(puzzle));
     #endif
+
     result = solve(puzzle, -1, -1); // This recursively solves the puzzle
 
     #if DEBUG
-    puzzle_print(game);
+    puzzle_print(puzzle, 0);
     printf("Puzzle validity:%d \n", puzzle_is_valid(puzzle));
     printf("Puzzle completeness:%d \n", puzzle_is_complete(puzzle));
     #else

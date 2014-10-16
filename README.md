@@ -51,6 +51,7 @@ test_3.py (3 games, 3 times and takes mean)
 once.py (244 games once)
 
 ### Todo:
+
 - Input checking
 - Output checking
 - Improve tests
@@ -65,6 +66,7 @@ once.py (244 games once)
 - Values and row cols to bytes
 
 ### License:
+
 The code is under the MIT license. This permissive license is included to
 encourage sharing of any modifications.
 
