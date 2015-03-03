@@ -1,14 +1,25 @@
 
+full_group = set(["1", "2", "3", "4", "5", "6", "7", "8", "9"])
+
 
 class Group(object):
     def __init__(self, cells):
-        self.cells = cells
+        self.cells = set(cells)
 
+    def __len__(self):
+        return len(self.cells)
+
+    @property
     def full(self):
-        return all([cell.value == None for cell in self.cells])
+        return len(self.cells) == 9
 
+    @property
+    def empty(self):
+        return len(self.cells) == 0
+
+    @property
     def valid(self):
-        return True  # TODO check validity
+        return self.cells <= full_group
 
     def __str__(self):
         return "".join([str(cell) for cell in self.cells])

@@ -1,7 +1,9 @@
-.PHONY: test
+all: test
+
+.PHONY: test clean
 
 test:
 	nosetests
 
 clean:
-	find
+	find . -name \*.pyc -delete
