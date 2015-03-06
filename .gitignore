@@ -1,3 +1,6 @@
 *.o
 bin/*
 test/log/*
+
+.pyc
+__pycache__
