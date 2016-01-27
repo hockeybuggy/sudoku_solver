@@ -1,3 +1,4 @@
+<<<<<<< acd5fa0174cfa418a725209313479b5dcc19f7ef
 # A C sudoku solver
 ### by Douglas Anderson
 
@@ -73,3 +74,16 @@ encourage sharing of any modifications.
 
 Please comment or contribute. I would love and greatly appreciate feedback!
 
+=======
+
+# Sudoku solver
+
+A toy sudoku solver.
+
+## Running tests
+
+To run tests use the helpers in the `script` directory
+
+    ./script/test_python
+    ./script/test_c
+>>>>>>> Trying out multiple languages in a Travis build.
