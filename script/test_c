@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cd 'c'
+
+make  # compile the tests
+python test/test.py
+cat test/log/test.txt
